@@ -11,51 +11,69 @@
 namespace Latihan {
     
     
-    public partial class MenuSiswa {
+    public partial class AkunSiswa {
         
         /// <summary>
-        /// text_search control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox text_search;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// search control.
+        /// linkbuttonlogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button search;
+        protected global::System.Web.UI.WebControls.LinkButton linkbuttonlogout;
         
         /// <summary>
-        /// scriptmanager1 control.
+        /// labelnama control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scriptmanager1;
+        protected global::System.Web.UI.WebControls.Label labelnama;
         
         /// <summary>
-        /// updatepanel1 control.
+        /// labelnamasiswa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatepanel1;
+        protected global::System.Web.UI.WebControls.Label labelnamasiswa;
         
         /// <summary>
-        /// datapendaftaran control.
+        /// labelalamat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater datapendaftaran;
+        protected global::System.Web.UI.WebControls.Label labelalamat;
+        
+        /// <summary>
+        /// labeljeniskelamin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labeljeniskelamin;
+        
+        /// <summary>
+        /// tabelakademik control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView tabelakademik;
     }
 }

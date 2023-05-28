@@ -23,7 +23,7 @@ namespace Latihan
         {
             if (Session["user"] != null)
             {
-                label_session.Text = "Selamat Datang " + controller.GetNamaPanitia(Session["user"].ToString());
+                label_session.Value = controller.GetNamaPanitia(Session["user"].ToString());
             }
             else
             {

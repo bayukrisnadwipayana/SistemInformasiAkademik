@@ -11,51 +11,42 @@
 namespace Latihan {
     
     
-    public partial class MenuSiswa {
+    public partial class LoginSiswa {
         
         /// <summary>
-        /// text_search control.
+        /// formloginsiswa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox text_search;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formloginsiswa;
         
         /// <summary>
-        /// search control.
+        /// usernamesiswa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button search;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText usernamesiswa;
         
         /// <summary>
-        /// scriptmanager1 control.
+        /// passwordsiswa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scriptmanager1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword passwordsiswa;
         
         /// <summary>
-        /// updatepanel1 control.
+        /// btnloginsiswa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatepanel1;
-        
-        /// <summary>
-        /// datapendaftaran control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater datapendaftaran;
+        protected global::System.Web.UI.WebControls.Button btnloginsiswa;
     }
 }

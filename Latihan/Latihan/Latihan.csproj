@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WebForms\9.0.0.0__b03f5f7f11d50a3a\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -57,6 +61,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Akademik.aspx.cs">
+      <DependentUpon>Akademik.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Akademik.aspx.designer.cs">
+      <DependentUpon>Akademik.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AkunSiswa.aspx.cs">
+      <DependentUpon>AkunSiswa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AkunSiswa.aspx.designer.cs">
+      <DependentUpon>AkunSiswa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -79,6 +97,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoginSiswa.aspx.cs">
+      <DependentUpon>LoginSiswa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginSiswa.aspx.designer.cs">
+      <DependentUpon>LoginSiswa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MenuHome.aspx.cs">
       <DependentUpon>MenuHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -99,6 +124,13 @@
     </Compile>
     <Compile Include="MenuUtama.Master.designer.cs">
       <DependentUpon>MenuUtama.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pembayaran.aspx.cs">
+      <DependentUpon>Pembayaran.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pembayaran.aspx.designer.cs">
+      <DependentUpon>Pembayaran.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pendaftaran.aspx.cs">
       <DependentUpon>Pendaftaran.aspx</DependentUpon>
@@ -152,13 +184,20 @@
     <None Include="Bootstrap\js\bootstrap.bundle.min.js.map" />
     <None Include="Bootstrap\js\bootstrap.js.map" />
     <None Include="Bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Akademik.aspx" />
+    <Content Include="AkunSiswa.aspx" />
+    <Content Include="Bootstrap\img\create-sharp.svg" />
     <Content Include="Bootstrap\img\Definisi pendidikan.jpg" />
     <Content Include="Bootstrap\img\login.png" />
+    <Content Include="Bootstrap\img\man.svg" />
     <Content Include="Bootstrap\img\Seanau-3d-House-School.ico" />
+    <Content Include="Bootstrap\img\trash-sharp.svg" />
     <Content Include="EditDataSiswa.aspx" />
+    <Content Include="LoginSiswa.aspx" />
     <Content Include="MenuHome.aspx" />
     <Content Include="MenuSiswa.aspx" />
     <Content Include="MenuUtama.Master" />
+    <Content Include="Pembayaran.aspx" />
     <Content Include="Pendaftaran.aspx" />
   </ItemGroup>
   <ItemGroup>

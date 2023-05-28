@@ -38,7 +38,7 @@ namespace Latihan {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label_session;
+        protected global::System.Web.UI.WebControls.HiddenField label_session;
         
         /// <summary>
         /// link_logout control.

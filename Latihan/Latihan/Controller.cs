@@ -13,10 +13,15 @@ using System.Data.SqlClient;
 
 namespace Latihan
 {
+    interface ISiswa
+    {
+        int LihatNilaiRaport(string nis);
+        //void Pengumuman();
+    }
     public class Controller
     {
-        SqlConnection koneksi = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString);
-        SqlCommand command = new SqlCommand();
+        protected SqlConnection koneksi = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString);
+        protected SqlCommand command = new SqlCommand();
         private string query;
         private string nis;
         private string nama;
@@ -126,7 +131,7 @@ namespace Latihan
             }
             return null;
         }
-        public bool GetUserAndPassword(string id, string pass)
+        public virtual bool GetUserAndPassword(string id, string pass)
         {
             string query = "SELECT * FROM login WHERE id_panitia=@id_panitia AND password=@password";
             SqlDataReader datareader;
@@ -257,9 +262,9 @@ namespace Latihan
             return 0;
         }
 
-        public int DeleteDataSiswa(string nis)
+        public int DeleteDataSiswa(string nomer)
         {
-            this.get_nis = nis;
+            this.get_nis = nomer;
             this.get_query = "DELETE FROM siswa WHERE nis=@nis";
             int result = 0;
             try
@@ -308,6 +313,78 @@ namespace Latihan
                 koneksi.Close();
             }
             return null;
+        }
+        public string GetNamaAkun(string nis)
+        {
+            this.get_nis = nis;
+            string query = "SELECT namasiswa FROM siswa WHERE nis=@nis";
+            SqlDataReader datareader;
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.Add("@nis", SqlDbType.VarChar).Value = this.get_nis;
+                datareader = command.ExecuteReader();
+                while (datareader.Read())
+                {
+                    return datareader.GetString(0);
+                }
+                datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            return null;
+        }
+    }
+
+    public class siswa : Controller, ISiswa
+    {
+        public override bool GetUserAndPassword(string id, string pass)
+        {
+            string query = "SELECT * FROM loginsiswa WHERE nis=@nis AND password=@password";
+            SqlDataReader datareader;
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.Add("@nis", SqlDbType.VarChar).Value = id;
+                command.Parameters.Add("@password", SqlDbType.VarChar).Value = pass;
+                datareader = command.ExecuteReader();
+                if (datareader.Read())
+                {
+                    return true;
+                }
+                datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            return base.GetUserAndPassword(id, pass);
+        }
+
+        public int LihatNilaiRaport(string nis)
+        {
+            return 0;
+        }
+
+        public void Pengumuman()
+        {
+
         }
     }
 }

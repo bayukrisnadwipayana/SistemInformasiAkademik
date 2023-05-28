@@ -78,16 +78,14 @@ namespace Latihan
 
         protected void DeleteValueByNis(object sender, EventArgs e)
         {
-            string nis = ((sender as LinkButton).NamingContainer.FindControl("nissiswa") as Label).Text;
+            RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
+            string nis = (item.FindControl("nissiswa") as Label).Text;
             if (controller.DeleteDataSiswa(nis) > 0)
             {
-                Response.Write("<script>Data Siswa Sukses Dihapus</script>");
-                Response.Redirect("MenuSiswa.aspx");
+                datapendaftaran.DataSource = controller.DisplayDataSiswa("SELECT siswa.nis, siswa.namasiswa, siswa.alamat, siswa.jeniskelamin, siswa.asalsekolah, kota.namakota, panitia.nama_panitia FROM siswa INNER JOIN kota ON siswa.kode_kota = kota.kode_kota INNER JOIN panitia ON siswa.id_panitia = panitia.id_panitia");
+                datapendaftaran.DataBind();
             }
-            else
-            {
-                Response.Write("<script>Data Siswa Gagal Dihapus</script>");
-            }
+            
         }
 
         protected void SearchDataSiswa(object sender, EventArgs e)
@@ -96,6 +94,13 @@ namespace Latihan
             string query = "SELECT siswa.nis, siswa.namasiswa, siswa.alamat, siswa.jeniskelamin, siswa.asalsekolah, kota.namakota, panitia.nama_panitia FROM siswa INNER JOIN kota ON siswa.kode_kota = kota.kode_kota INNER JOIN panitia ON siswa.id_panitia = panitia.id_panitia WHERE nis LIKE '%" + textsearch.Trim() + "%' OR namasiswa LIKE '%" + textsearch.Trim() + "%'";
             datapendaftaran.DataSource = controller.DisplayDataSiswa(query);
             datapendaftaran.DataBind();
+        }
+
+        protected void RedirectToAkademik(object sender, EventArgs e)
+        {
+            RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
+            string nis = (item.FindControl("nissiswa") as Label).Text;
+            Response.Redirect("Akademik.aspx?nis=" + nis);
         }
     }
 }

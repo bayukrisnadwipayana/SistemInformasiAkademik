@@ -1,16 +1,26 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MenuUtama.Master" AutoEventWireup="true" CodeBehind="MenuSiswa.aspx.cs" Inherits="Latihan.MenuSiswa" Title="Daftar Siswa" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.form-control').keyup(function(){
+        var text=$(this).val();
+        if(text!='') $('td').parent().hide();
+        else $('td').parent().show();
+        $('td').filter(function(){
+            return $(this).text().indexOf(text)!==-1;
+        }).parent().show();
+    });
+   });
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                  <ContentTemplate>
-                  <asp:TextBox name="keyword" ID="text_search" runat="server" CssClass="form-control col-md-2 ml-2" type="search" placeholder="Cari Siswa/Akademik/Event" />
-                  <asp:Button ID="search" runat="server" CssClass="btn btn-success col-md-2 ml-2" Text="Search" OnClick="SearchDataSiswa" />
-                  
-                <br /><br />
-
+                  <asp:TextBox name="keyword" ID="text_search" runat="server" CssClass="form-control col-md-2 ml-2" placeholder="Cari Siswa/Akademik/Event" />
+                  <asp:Button ID="search" runat="server" CssClass="btn btn-success col-md-2 ml-2" Text="Search" OnClick="SearchDataSiswa" />                 
+                    <br /><br />
+        <asp:ScriptManager ID="scriptmanager1" runat="server">
+        </asp:ScriptManager>
+        <asp:UpdatePanel ID="updatepanel1" runat="server">
+        <ContentTemplate>
         <asp:Repeater ID="datapendaftaran" runat="server">
         <HeaderTemplate>
         <table class="table">
@@ -23,6 +33,7 @@
               <th scope="col">ASAL SEKOLAH</th>
               <th scope="col">KOTA</th>
               <th scope="col">PANITIA</th>
+              <th scope="col">AKADEMIK</th>
               <th scope="col">KONFIRMASI</th>
             </tr>
           </thead>
@@ -37,7 +48,8 @@
               <td><asp:Label ID="sekolah" runat="server" Text='<%# Eval("asalsekolah") %>'></asp:Label></td>
               <td><asp:Label ID="kota" runat="server" Text='<%# Eval("namakota") %>'></asp:Label></td>
               <td><asp:Label ID="panitia" runat="server" Text='<%# Eval("nama_panitia") %>'></asp:Label></td>
-              <td><asp:LinkButton CssClass="btn btn-primary" ID="link_edit" runat="server" Text="Edit" OnClick="GetValueByNis"></asp:LinkButton> | <asp:LinkButton CssClass="btn btn-danger" ID="link_hapus" runat="server" Text="Hapus" OnClick="DeleteValueByNis"></asp:LinkButton></td>
+              <td><asp:LinkButton ID="akademiksiswa" runat="server" CssClass="btn btn-secondary" Text="Nilai Raport" OnClick="RedirectToAkademik"></asp:LinkButton></td>
+              <td></ion-icon><asp:LinkButton CssClass="btn btn-primary" ID="link_edit" runat="server" OnClick="GetValueByNis" ToolTip="Edit Siswa"><ion-icon src="Bootstrap/img/create-sharp.svg"></ion-icon></asp:LinkButton> | <asp:LinkButton CssClass="btn btn-danger" ID="link_hapus" runat="server" OnClick="DeleteValueByNis" ToolTip="Delete Siswa"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton></td>
             </tr>
           </tbody>
           </ItemTemplate>
@@ -45,16 +57,6 @@
         </table>
         </FooterTemplate>
         </asp:Repeater>
-            </ContentTemplate>
+        </ContentTemplate>
         </asp:UpdatePanel>
-<input id="hidden_value" runat="server" type="hidden" value="0" />
-<div id="tampil">
-</div>
-<script type="text/javascript">
-function kata()
-{
-    var textbox_value=document.getElementById("<%= text_search.ClientID %>").value;
-    console.log(textbox_value);
-    }
-</script>
 </asp:Content>
