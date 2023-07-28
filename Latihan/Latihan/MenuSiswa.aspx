@@ -12,15 +12,14 @@
     });
    });
 </script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
                   <asp:TextBox name="keyword" ID="text_search" runat="server" CssClass="form-control col-md-2 ml-2" placeholder="Cari Siswa/Akademik/Event" />
                   <asp:Button ID="search" runat="server" CssClass="btn btn-success col-md-2 ml-2" Text="Search" OnClick="SearchDataSiswa" />                 
                     <br /><br />
-        <asp:ScriptManager ID="scriptmanager1" runat="server">
-        </asp:ScriptManager>
-        <asp:UpdatePanel ID="updatepanel1" runat="server">
-        <ContentTemplate>
+                    
         <asp:Repeater ID="datapendaftaran" runat="server">
         <HeaderTemplate>
         <table class="table">
@@ -49,7 +48,7 @@
               <td><asp:Label ID="kota" runat="server" Text='<%# Eval("namakota") %>'></asp:Label></td>
               <td><asp:Label ID="panitia" runat="server" Text='<%# Eval("nama_panitia") %>'></asp:Label></td>
               <td><asp:LinkButton ID="akademiksiswa" runat="server" CssClass="btn btn-secondary" Text="Nilai Raport" OnClick="RedirectToAkademik"></asp:LinkButton></td>
-              <td></ion-icon><asp:LinkButton CssClass="btn btn-primary" ID="link_edit" runat="server" OnClick="GetValueByNis" ToolTip="Edit Siswa"><ion-icon src="Bootstrap/img/create-sharp.svg"></ion-icon></asp:LinkButton> | <asp:LinkButton CssClass="btn btn-danger" ID="link_hapus" runat="server" OnClick="DeleteValueByNis" ToolTip="Delete Siswa"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton></td>
+              <td></ion-icon><asp:LinkButton CssClass="btn btn-primary" ID="link_edit" runat="server" OnClick="GetValueByNis" ToolTip="Edit Siswa"><ion-icon src="Bootstrap/img/create-sharp.svg"></ion-icon></asp:LinkButton> | <asp:LinkButton CssClass="btn btn-danger" ID="link_hapus" runat="server" OnClick="DeleteValueByNis" OnClientClick="return confirm('are you sure to delete')" ToolTip="Delete Siswa"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton></td>
             </tr>
           </tbody>
           </ItemTemplate>
@@ -57,6 +56,4 @@
         </table>
         </FooterTemplate>
         </asp:Repeater>
-        </ContentTemplate>
-        </asp:UpdatePanel>
 </asp:Content>

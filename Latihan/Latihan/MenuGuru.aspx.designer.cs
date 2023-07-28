@@ -11,51 +11,60 @@
 namespace Latihan {
     
     
-    public partial class LoginSiswa {
+    public partial class MenuGuru {
         
         /// <summary>
-        /// formloginsiswa control.
+        /// label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formloginsiswa;
+        protected global::System.Web.UI.WebControls.Label label1;
         
         /// <summary>
-        /// usernamesiswa control.
+        /// nipguru control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText usernamesiswa;
+        protected global::System.Web.UI.WebControls.TextBox nipguru;
         
         /// <summary>
-        /// passwordsiswa control.
+        /// textnamaguru control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword passwordsiswa;
+        protected global::System.Web.UI.WebControls.TextBox textnamaguru;
         
         /// <summary>
-        /// btnloginsiswa control.
+        /// dropdownmapel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnloginsiswa;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownmapel;
         
         /// <summary>
-        /// nolink control.
+        /// textpassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton nolink;
+        protected global::System.Web.UI.WebControls.TextBox textpassword;
+        
+        /// <summary>
+        /// tabelguru control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView tabelguru;
     }
 }

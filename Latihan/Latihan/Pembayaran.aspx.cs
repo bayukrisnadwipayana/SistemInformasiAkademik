@@ -23,7 +23,7 @@ namespace Latihan
         {
             if (!Page.IsPostBack)
             {
-                datapembayaran.DataSource = controller.DisplayDataSiswa("SELECT siswa.nis, siswa.namasiswa, siswa.alamat, siswa.jeniskelamin, status.kode_status FROM siswa INNER JOIN kota ON siswa.kode_kota = kota.kode_kota INNER JOIN panitia ON siswa.id_panitia = panitia.id_panitia INNER JOIN pembayaran ON pembayaran.nis=siswa.nis INNER JOIN status ON status.kode_status=pembayaran.kode_status");
+                datapembayaran.DataSource = controller.DisplayDataTable("SELECT siswa.nis, siswa.namasiswa, siswa.alamat, siswa.jeniskelamin, status.kode_status FROM siswa INNER JOIN kota ON siswa.kode_kota = kota.kode_kota INNER JOIN panitia ON siswa.id_panitia = panitia.id_panitia INNER JOIN pembayaran ON pembayaran.nis=siswa.nis INNER JOIN status ON status.kode_status=pembayaran.kode_status");
                 //datapembayaran.DataSource = controller.DisplayDataSiswa("SELECT*FROM siswa OUTER JOIN pembayaran ON siswa.nis=pembayaran.nis");
                 datapembayaran.DataBind();
             }

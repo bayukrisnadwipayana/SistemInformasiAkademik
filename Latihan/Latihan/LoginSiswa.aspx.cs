@@ -29,6 +29,12 @@ namespace Latihan
 
         }
 
+        protected void EventHubungiAdmin(object sender, EventArgs e)
+        {
+            string script = "alert('Hubungi Admin')";
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", script, true);
+        }
+
         protected void EventLoginAkunSiswa(object sender, EventArgs e)
         {
             if (siswa.GetUserAndPassword(usernamesiswa.Value, passwordsiswa.Value))

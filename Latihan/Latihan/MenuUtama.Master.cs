@@ -21,15 +21,30 @@ namespace Latihan
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] != null)
+            if (!IsPostBack)
             {
-                label_session.Value = controller.GetNamaPanitia(Session["user"].ToString());
+                if (Session["user"] != null)
+                {
+                    label_session.Value = controller.GetNamaPanitia(Session["user"].ToString());
+                    Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                    Response.Cache.SetNoStore();
+                    Response.ClearHeaders();
+                    Response.AddHeader("Cache-Control", "no-cache,no-store,max-age=0,must-revalidate");
+                    Response.AddHeader("Pragma", "no-cache");
+                }
+                else
+                {
+                    Session.Abandon();
+                    Response.Redirect("Login.aspx");
+                }
             }
-            else
-            {
-                Session.Abandon();
-                Response.Redirect("Login.aspx");
-            }
+            Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+            Response.ClearHeaders();
+            Response.AddHeader("Cache-Control", "no-cache,no-store,max-age=0,must-revalidate");
+            Response.AddHeader("Pragma", "no-cache");
         }
 
         protected void Logout_Event(object sender, EventArgs e)

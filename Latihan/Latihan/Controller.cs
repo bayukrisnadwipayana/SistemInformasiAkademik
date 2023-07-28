@@ -10,14 +10,23 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
+using System.Web.SessionState;
+using System.IO;
+using System.Text;
 
 namespace Latihan
 {
     interface ISiswa
     {
         int LihatNilaiRaport(string nis);
-        //void Pengumuman();
+        void Pengumuman();
     }
+
+    interface IGuru
+    {
+        
+    }
+
     public class Controller
     {
         protected SqlConnection koneksi = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString);
@@ -29,6 +38,8 @@ namespace Latihan
         private string jenis_kelamin;
         private string kota;
         private string sekolah;
+        private string nip;
+        private string mapel;
 
         public string get_nis
         {
@@ -105,6 +116,28 @@ namespace Latihan
             set
             {
                 query = value;
+            }
+        }
+        public string get_nip
+        {
+            get
+            {
+                return nip;
+            }
+            set
+            {
+                nip = value.ToLower();
+            }
+        }
+        public string get_mapel
+        {
+            get
+            {
+                return mapel;
+            }
+            set
+            {
+                mapel = value.ToLower();
             }
         }
         public DataSet GetDataKota(string sql)
@@ -288,7 +321,7 @@ namespace Latihan
             return 0;
         }
 
-        public DataSet DisplayDataSiswa(string query)
+        public DataSet DisplayDataTable(string query)
         {
             this.get_query = query;
             SqlDataAdapter dataadapter;
@@ -314,6 +347,7 @@ namespace Latihan
             }
             return null;
         }
+
         public string GetNamaAkun(string nis)
         {
             this.get_nis = nis;
@@ -342,6 +376,41 @@ namespace Latihan
                 koneksi.Close();
             }
             return null;
+        }
+
+        public double nilai_ratarata(double tugas, double kuis, double ujian)
+        {
+            return (tugas + kuis + ujian) / 3;
+        }
+
+        public int SaveDataRaport(string kelas, string semester, string nis, string pelajaran, string tugas, string kuis, string ujian)
+        {
+            this.get_query = "INSERT INTO raport VALUES(@kelas,@semester,@nis,@pelajaran,@tugas,@kuis,@ujian)";
+            this.get_nis=nis;
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = this.get_query;
+                command.Parameters.Add("@kelas", SqlDbType.VarChar).Value = kelas;
+                command.Parameters.Add("@semester", SqlDbType.VarChar).Value = semester;
+                command.Parameters.Add("@nis", SqlDbType.VarChar).Value = this.get_nis;
+                command.Parameters.Add("@pelajaran", SqlDbType.VarChar).Value = pelajaran;
+                command.Parameters.Add("@tugas", SqlDbType.Int).Value = Convert.ToInt32(tugas);
+                command.Parameters.Add("@kuis", SqlDbType.Int).Value = Convert.ToInt32(kuis);
+                command.Parameters.Add("@ujian", SqlDbType.Int).Value = Convert.ToInt32(ujian);
+                return command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            return 0;
         }
     }
 
