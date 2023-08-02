@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MenuUtama.Master" AutoEventWireup="true" CodeBehind="MenuGuru.aspx.cs" Inherits="Latihan.MenuGuru" Title="Untitled Page" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/MenuUtama.Master" AutoEventWireup="true" CodeBehind="MenuGuru.aspx.cs" Inherits="Latihan.MenuGuru" Title="Data Guru" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -37,6 +36,7 @@
     </div>
   </div>
 </div>
+<cc1:ToolkitScriptManager ID="toolkitscriptmanager1" runat="server"></cc1:ToolkitScriptManager>
 <asp:GridView ID="tabelguru" runat="server" AutoGenerateColumns="false" CssClass="table table-active table-primary" OnRowDeleting="EventHapusGuru" DataKeyNames="nip">
     <Columns>
         <asp:BoundField HeaderText="NIP" DataField="nip"/>
@@ -44,11 +44,62 @@
         <asp:BoundField HeaderText="Mata Pelajaran" DataField="nama_mapel" />
         <asp:TemplateField HeaderText="Action">
             <ItemTemplate>
+                <asp:Button CommandName="EditRow" ID="btn_editdataguru" Text="Edit" runat="server" CssClass="btn btn-warning" OnClick="EditDataGuru" />
                 <asp:Button CommandName="Delete" Text="Hapus" OnClientClick="return confirm('Anda Yakin Ingin Menghapus Data Guru?')" runat="server" CssClass="btn btn-danger" />
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
+<asp:Button ID="BtnShowModal" runat="server" style="display:none" />
+<cc1:ModalPopupExtender ID="PopupEdit" runat="server" TargetControlID="BtnShowModal" PopupControlID="PanelPopup" CancelControlID="btnCancel"></cc1:ModalPopupExtender>
+<asp:Panel ID="PanelPopup" runat="server" BackColor="White" Height="269px" Width="400px" style="display:none">
+<table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
+<tr style="background-color:#D55500">
+    <td colspan="2" style=" height:10%; color:White; font-weight:bold; font-size:larger" align="center">Detail Guru</td>
+        <tr>
+            <td align="right">
+            NIP Guru:
+            </td>
+            <td>
+            <asp:TextBox ID="editnipguru" runat="server" CssClass="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+            Nama Guru:
+            </td>
+            <td>
+            <asp:TextBox ID="editnamaguru" runat="server" CssClass="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+            Mata Pelajaran:
+            </td>
+            <td>
+            <asp:DropDownList ID="dropdowneditmapel" runat="server" CssClass="form-control">
+            </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+            Password:
+            </td>        
+            <td>
+            <asp:TextBox ID="editpassword" runat="server" CssClass="form-control" />
+            </td>       
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            <asp:Button ID="btnUpdate" CommandName="update" CssClass="btn btn-warning" runat="server" Text="Update" OnClick="UpdateDataGuru" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-danger" />
+            </td>
+        </tr>
+</tr>
+</table>
+</asp:Panel>
     <script type="text/javascript">
         function SimpanDataGuru()
         {
@@ -60,12 +111,7 @@
                 contentType:'application/Json;charset:utf-8',
                 dataType:'Json',
                 success:function(data){
-                    swal.fire(
-                              'Success',
-                              'Data Guru Sukses Disimpan',
-                              'success'
-                            ),
-                    window.location.href="MenuGuru.aspx"
+                    window.location.href="MenuGuru.aspx";
                 }
             });
         }
@@ -73,4 +119,5 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </asp:Content>

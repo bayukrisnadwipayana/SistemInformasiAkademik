@@ -42,36 +42,15 @@ namespace Latihan
             dropdownmapel.DataBind();
         }
 
-        protected void EventHapusGuru(object sender, GridViewDeleteEventArgs e)
+        protected void FormEdit_DropdownEditMapel()
         {
-            string query = "DELETE FROM guru WHERE nip=@nip";
-            try
-            {
-                koneksi.Open();
-                command.Connection = koneksi;
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
-                command.Parameters.Add("@nip", SqlDbType.VarChar).Value = (tabelguru.DataKeys[e.RowIndex].Value).ToString();
-                int record = command.ExecuteNonQuery();
-                if (record > 0)
-                {
-                    tabelguru.DataSource = controller.DisplayDataTable("SELECT nip,namaguru,nama_mapel FROM guru INNER JOIN pelajaran ON guru.id_mapel=pelajaran.id_mapel");
-                    tabelguru.DataBind();
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write(ex.ToString());
-            }
-            finally
-            {
-                koneksi.Close();
-                tabelguru.DataSource = controller.DisplayDataTable("SELECT nip,namaguru,nama_mapel FROM guru INNER JOIN pelajaran ON guru.id_mapel=pelajaran.id_mapel");
-                tabelguru.DataBind();
-            }
+            dropdowneditmapel.DataSource = controller.DisplayDataTable("SELECT * FROM pelajaran");
+            dropdowneditmapel.DataTextField = "nama_mapel";
+            dropdowneditmapel.DataValueField = "id_mapel";
+            dropdowneditmapel.DataBind();
         }
 
-        public static string CreateMD5(string input)
+        protected static string CreateMD5(string input)
         {
             MD5 md5 = MD5.Create();
             byte[] getinputbytes = Encoding.ASCII.GetBytes(input);
@@ -115,6 +94,135 @@ namespace Latihan
             finally
             {
                 koneksi.Close();
+            }
+        }
+
+        [WebMethod]
+        public static string DisplayDataGuru()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            string query = "SELECT * FROM SELECT nip,namaguru,nama_mapel FROM guru INNER JOIN pelajaran ON guru.id_mapel=pelajaran.id_mapel";
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = query;
+                SqlDataAdapter dataadapter = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                dataadapter.Fill(ds);
+                return ds.GetXml();
+            }
+            catch(Exception e)
+            {
+                e.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return null;
+        }
+
+        protected string GetPasswordGuru(string nip)
+        {
+            SqlDataReader datareader;
+            string query = "SELECT password FROM guru WHERE nip=@nip";
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.Add("@nip", SqlDbType.VarChar).Value = nip;
+                datareader = command.ExecuteReader();
+                while(datareader.Read())
+                {
+                    if (datareader.HasRows)
+                    {
+                        return datareader["password"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            return null;
+        }
+
+        protected void EditDataGuru(object sender, EventArgs e)
+        {
+            FormEdit_DropdownEditMapel();
+            GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
+            editnipguru.Text = row.Cells[0].Text;
+            editnamaguru.Text = row.Cells[1].Text;
+            dropdowneditmapel.Items.FindByText(row.Cells[2].Text).Selected = true;
+            //editpassword.Text = GetPasswordGuru(row.Cells[0].Text);
+            this.PopupEdit.Show();
+        }
+
+        protected void UpdateDataGuru(object sender, EventArgs e)
+        {
+            string query = "UPDATE guru SET namaguru=@nama,id_mapel=@id WHERE nip=@nip";
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.Add("@nip", SqlDbType.VarChar).Value = editnipguru.Text;
+                command.Parameters.Add("@nama", SqlDbType.VarChar).Value = editnamaguru.Text;
+                command.Parameters.Add("@id", SqlDbType.VarChar).Value = dropdowneditmapel.SelectedValue;
+                int record = command.ExecuteNonQuery();
+                if (record > 0)
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "Swal.fire('Update','Data Guru Sukses Diupdate','success')", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            finally
+            {
+                koneksi.Close();
+                tabelguru.DataSource = controller.DisplayDataTable("SELECT nip,namaguru,nama_mapel FROM guru INNER JOIN pelajaran ON guru.id_mapel=pelajaran.id_mapel");
+                tabelguru.DataBind();
+            }
+        }
+
+        protected void EventHapusGuru(object sender, GridViewDeleteEventArgs e)
+        {
+            string query = "DELETE FROM guru WHERE nip=@nip";
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.Add("@nip", SqlDbType.VarChar).Value = (tabelguru.DataKeys[e.RowIndex].Value).ToString();
+                int record = command.ExecuteNonQuery();
+                if (record > 0)
+                {
+                    tabelguru.DataSource = controller.DisplayDataTable("SELECT nip,namaguru,nama_mapel FROM guru INNER JOIN pelajaran ON guru.id_mapel=pelajaran.id_mapel");
+                    tabelguru.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            finally
+            {
+                koneksi.Close();
+                tabelguru.DataSource = controller.DisplayDataTable("SELECT nip,namaguru,nama_mapel FROM guru INNER JOIN pelajaran ON guru.id_mapel=pelajaran.id_mapel");
+                tabelguru.DataBind();
             }
         }
     }
