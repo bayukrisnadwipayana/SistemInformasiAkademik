@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MenuUtama.Master" AutoEventWireup="true" CodeBehind="Akademik.aspx.cs" Inherits="Latihan.Akademik" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MenuUtama.Master" AutoEventWireup="true" CodeBehind="Akademik.aspx.cs" Inherits="Latihan.Akademik" Title="Halaman Akademik" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <style type="text/css">
@@ -132,13 +132,66 @@
                             <td><asp:Label ID="labelkuis" runat="server" Text='<%# Eval("kuis")%>'></asp:Label></td>
                             <td><asp:Label ID="labelujian" runat="server" Text='<%# Eval("ujian") %>'></asp:Label></td>
                             <td><asp:Label ID="labelratarata" runat="server" Text='<%# Eval("rata_rata") %>'></asp:Label></td>
-                            <td><asp:LinkButton ID="linkbuttonupdate" runat="server" Text="Update" CssClass="btn btn-warning"></asp:LinkButton> | <asp:LinkButton ID="linkbuttondelete" runat="server" Text="Hapus" CssClass="btn btn-danger" OnClick="EventHapusRaportKelas1Semester1" OnClientClick="return confirm('Anda Yakin Menghapus Data ?')"></asp:LinkButton></td>
+                            <td>
+                                <asp:LinkButton ID="linkbuttonupdate" runat="server" Text="Update" CssClass="btn btn-warning" ToolTip="Update"><ion-icon src="Bootstrap/img/create-sharp.svg"></ion-icon></asp:LinkButton> | 
+                                <asp:LinkButton ID="linkbuttondelete" runat="server" Text="Hapus" CssClass="btn btn-danger" OnClick="EventHapusRaportKelas1Semester1" ToolTip="Delete"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton>
+                            </td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
+                <asp:Button ID="modalpopuphapus" runat="server" style="display:none" />
+                <cc1:ModalPopupExtender ID="modalpopup" runat="server" PopupControlID="panel1" TargetControlID="modalpopuphapus" CancelControlID="btnCancel"></cc1:ModalPopupExtender>
+                <asp:Panel ID="panel1" runat="server" BackColor="White" Height="200px" Width="400px" style="display:none">
+                <table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
+                    <tr style="background-color:#D55500">
+                        <td colspan="2" style="height:10%; color:White; font-weight:bold; font-size:larger" align="center">Detail Guru</td>
+                            <tr>
+                                <td align="right">
+                                Kelas:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="texthapuskelas1" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Semester:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="texthapussemester1" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nis:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="texthapusnis" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Pelajaran:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="texthapuspelajaran1" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                <asp:Button ID="btnHapus" CommandName="update" CssClass="btn btn-warning" runat="server" Text="Delete" />
+                                <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-danger" />
+                                </td>
+                            </tr>
+                    </tr>
+                </table>
+                </asp:Panel>
+                
                 <h3 class="text-capitalize">Semester 2</h3>
                 <asp:GridView ID="tabelkelas1semester2" runat="server" AutoGenerateColumns="false" CssClass="table table-responsive-md" OnRowDeleting="EventHapusRaportKelas1Semester2" DataKeyNames="kelas,semester,nis">
                     <Columns>
@@ -153,8 +206,8 @@
                         <asp:BoundField HeaderText="Nilai Rata-Rata" DataField="rata_rata" />
                         <asp:TemplateField HeaderText="Action">
                             <ItemTemplate>
-                                <asp:Button ID="btn_update" runat="server" CommandName="Update" Text="Update" CssClass="btn btn-warning" />
-                                <asp:Button ID="btn_delete" runat="server" CommandName="Delete" Text="Hapus" CssClass="btn btn-danger" OnClientClick="return confirm('Anda Yakin Menghapus ?')"/>
+                                <asp:LinkButton ID="btn_update" runat="server" CommandName="Update" CssClass="btn btn-warning"><ion-icon src="Bootstrap/img/create-sharp.svg"></asp:LinkButton>
+                                <asp:LinkButton ID="btn_delete" runat="server" CommandName="Delete" CssClass="btn btn-danger" OnClientClick="return confirm('Anda Yakin Menghapus ?')"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

@@ -92,7 +92,7 @@ namespace Latihan
 
         protected void EventHapusRaportKelas1Semester1(object sender, EventArgs e)
         {
-            RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
+            /*RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
             string query = "DELETE FROM raport WHERE nis=@nis AND kelas=@kelas AND semester=@semester";
             try
             {
@@ -117,11 +117,13 @@ namespace Latihan
             {
                 koneksi.Close();
             }
+             */
+            this.modalpopup.Show();
         }
 
         protected void EventHapusRaportKelas1Semester2(object sender, GridViewDeleteEventArgs e)
         {
-            string query = "DELETE FROM raport WHERE nis=@nis AND kelas=@kelas AND semester=@semester";
+            string query = "DELETE FROM raport INNER JOIN pelajaran ON raport.id_mapel=pelajaran.id_mapel WHERE nis=@nis AND kelas=@kelas AND semester=@semester";
             try
             {
                 koneksi.Open();
