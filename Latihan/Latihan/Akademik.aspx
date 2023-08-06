@@ -134,7 +134,7 @@
                             <td><asp:Label ID="labelratarata" runat="server" Text='<%# Eval("rata_rata") %>'></asp:Label></td>
                             <td>
                                 <asp:LinkButton ID="linkbuttonupdate" runat="server" Text="Update" CssClass="btn btn-warning" ToolTip="Update"><ion-icon src="Bootstrap/img/create-sharp.svg"></ion-icon></asp:LinkButton> | 
-                                <asp:LinkButton ID="linkbuttondelete" runat="server" Text="Hapus" CssClass="btn btn-danger" OnClick="EventHapusRaportKelas1Semester1" ToolTip="Delete"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton>
+                                <asp:LinkButton ID="linkbuttonmodaldelete" runat="server" Text="Hapus" CssClass="btn btn-danger" OnClick="EventModalHapusRaportKelas1Semester1" ToolTip="Delete"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -184,7 +184,7 @@
                                 <td>
                                 </td>
                                 <td>
-                                <asp:Button ID="btnHapus" CommandName="update" CssClass="btn btn-warning" runat="server" Text="Delete" />
+                                <asp:Button ID="btnHapus" runat="server" Text="Delete" CssClass="btn btn-warning" OnClick="EventHapusRaportKelas1Semester1" />
                                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-danger" />
                                 </td>
                             </tr>

@@ -39,6 +39,9 @@ namespace Latihan
         private string kota;
         private string sekolah;
         private string nip;
+        private string id_mapel;
+        private string kelas;
+        private string semester;
         private string mapel;
 
         public string get_nis
@@ -138,6 +141,39 @@ namespace Latihan
             set
             {
                 mapel = value.ToLower();
+            }
+        }
+        public string get_kelas
+        {
+            get
+            {
+                return kelas;
+            }
+            set
+            {
+                kelas = value;
+            }
+        }
+        public string get_semester
+        {
+            get
+            {
+                return semester;
+            }
+            set
+            {
+                semester = value;
+            }
+        }
+        public string get_pelajaran
+        {
+            get
+            {
+                return id_mapel;
+            }
+            set
+            {
+                id_mapel = value;
             }
         }
         public DataSet GetDataKota(string sql)
@@ -400,6 +436,36 @@ namespace Latihan
                 command.Parameters.Add("@tugas", SqlDbType.Int).Value = Convert.ToInt32(tugas);
                 command.Parameters.Add("@kuis", SqlDbType.Int).Value = Convert.ToInt32(kuis);
                 command.Parameters.Add("@ujian", SqlDbType.Int).Value = Convert.ToInt32(ujian);
+                return command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            return 0;
+        }
+
+        public int EventHapusRaportKelas1Semester1(string kelas, string semester, string nis, string id_mapel)
+        {
+            this.get_query = "DELETE FROM raport WHERE kelas=@kelas AND semester=@semester AND nis=@nis AND id_mapel=@id_mapel";
+            this.get_kelas = kelas;
+            this.get_semester = semester;
+            this.get_nis = nis;
+            this.get_pelajaran = id_mapel;
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = this.get_query;
+                command.Parameters.Add("@kelas", SqlDbType.VarChar).Value = this.get_kelas;
+                command.Parameters.Add("@semester", SqlDbType.VarChar).Value = this.get_semester;
+                command.Parameters.Add("@nis", SqlDbType.VarChar).Value = this.get_nis;
+                command.Parameters.Add("@id_mapel", SqlDbType.VarChar).Value = this.get_pelajaran;
                 return command.ExecuteNonQuery();
             }
             catch (Exception ex)

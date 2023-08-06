@@ -90,24 +90,28 @@ namespace Latihan
             dropdownlistpelajaran.DataBind();
         }
 
-        protected void EventHapusRaportKelas1Semester1(object sender, EventArgs e)
+        protected void EventModalHapusRaportKelas1Semester1(object sender, EventArgs e)
         {
-            /*RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
-            string query = "DELETE FROM raport WHERE nis=@nis AND kelas=@kelas AND semester=@semester";
+            
+            RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
+            SqlDataReader datareader;
+            string query = "SELECT raport.id_mapel FROM raport INNER JOIN pelajaran ON raport.id_mapel=pelajaran.id_mapel WHERE pelajaran.nama_mapel=@namamapel";
             try
             {
                 koneksi.Open();
                 command.Connection = koneksi;
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;
-                command.Parameters.Add("@nis", SqlDbType.VarChar).Value = (item.FindControl("labelnis") as Label).Text;
-                command.Parameters.Add("@kelas", SqlDbType.VarChar).Value = (item.FindControl("labelkelas") as Label).Text;
-                command.Parameters.Add("@semester", SqlDbType.VarChar).Value = (item.FindControl("labelsemester") as Label).Text;
-                int record = command.ExecuteNonQuery();
-                if (record > 0)
+                command.Parameters.Add("@namamapel", SqlDbType.VarChar).Value = (item.FindControl("labelpelajaran") as Label).Text;
+                datareader = command.ExecuteReader();
+                while (datareader.Read())
                 {
-                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "Swal.fire('Sukses','Data Sukses Dihapus','success')", true);
+                    texthapuskelas1.Text = (item.FindControl("labelkelas") as Label).Text;
+                    texthapussemester1.Text = (item.FindControl("labelsemester") as Label).Text;
+                    texthapusnis.Text = (item.FindControl("labelnis") as Label).Text;
+                    texthapuspelajaran1.Text = datareader["id_mapel"].ToString();
                 }
+                datareader.Close();
             }
             catch (Exception ex)
             {
@@ -117,8 +121,16 @@ namespace Latihan
             {
                 koneksi.Close();
             }
-             */
             this.modalpopup.Show();
+        }
+
+        protected void EventHapusRaportKelas1Semester1(object sender, EventArgs e)
+        {
+            if (controller.EventHapusRaportKelas1Semester1(texthapuskelas1.Text, texthapussemester1.Text, texthapusnis.Text, texthapuspelajaran1.Text) > 0)
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "Swal.fire('Hapus','Data Sukses Dihapus','success')", true);
+                DisplayRaportKelas1Semester1("1", Request.QueryString["nis"]);
+            }
         }
 
         protected void EventHapusRaportKelas1Semester2(object sender, GridViewDeleteEventArgs e)
@@ -156,7 +168,14 @@ namespace Latihan
                 RenderDropDownPelajaran();
                 DisplayRaportKelas1Semester1("1", Request.QueryString["nis"]);
                 DisplayRaportKelas1Semester2("2", Request.QueryString["nis"]);
-                textnis.Text = Request.Url.AbsoluteUri.Split('=')[1];
+                if (Request.Url.AbsoluteUri.Contains('?'))
+                {
+                    textnis.Text = Request.Url.AbsoluteUri.Split('=')[1];
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
     }
