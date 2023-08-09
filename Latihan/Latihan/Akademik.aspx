@@ -133,7 +133,7 @@
                             <td><asp:Label ID="labelujian" runat="server" Text='<%# Eval("ujian") %>'></asp:Label></td>
                             <td><asp:Label ID="labelratarata" runat="server" Text='<%# Eval("rata_rata") %>'></asp:Label></td>
                             <td>
-                                <asp:LinkButton ID="linkbuttonupdate" runat="server" Text="Update" CssClass="btn btn-warning" ToolTip="Update"><ion-icon src="Bootstrap/img/create-sharp.svg"></ion-icon></asp:LinkButton> | 
+                                <asp:LinkButton ID="linkbuttonupdate" runat="server" Text="Update" CssClass="btn btn-warning" ToolTip="Update" OnClick="EventModalUpdateRaportKelas1Semester1"><ion-icon src="Bootstrap/img/create-sharp.svg"></ion-icon></asp:LinkButton> | 
                                 <asp:LinkButton ID="linkbuttonmodaldelete" runat="server" Text="Hapus" CssClass="btn btn-danger" OnClick="EventModalHapusRaportKelas1Semester1" ToolTip="Delete"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton>
                             </td>
                         </tr>
@@ -143,7 +143,9 @@
                     </FooterTemplate>
                 </asp:Repeater>
                 <asp:Button ID="modalpopuphapus" runat="server" style="display:none" />
+                <asp:Button ID="btn_modalpopupupdate" runat="server" style="display:none" />
                 <cc1:ModalPopupExtender ID="modalpopup" runat="server" PopupControlID="panel1" TargetControlID="modalpopuphapus" CancelControlID="btnCancel"></cc1:ModalPopupExtender>
+                <cc1:ModalPopupExtender ID="modalpopupupdate" runat="server" PopupControlID="panel2" TargetControlID="btn_modalpopupupdate" CancelControlID="btn_cancelupdate"></cc1:ModalPopupExtender>
                 <asp:Panel ID="panel1" runat="server" BackColor="White" Height="200px" Width="400px" style="display:none">
                 <table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
                     <tr style="background-color:#D55500">
@@ -191,7 +193,53 @@
                     </tr>
                 </table>
                 </asp:Panel>
-                
+                <asp:Panel ID="panel2" runat="server" BackColor="White" Height="200px" Width="400px" style="display:none">
+                <table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
+                    <tr style="background-color:#D55500">
+                        <td colspan="2" style="height:10%; color:White; font-weight:bold; font-size:larger" align="center">Detail Guru</td>
+                            <tr>
+                                <td align="right">
+                                Kelas:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Semester:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nis:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Pelajaran:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                <asp:Button ID="btn_updateraport11" runat="server" Text="Delete" CssClass="btn btn-warning" />
+                                <asp:Button ID="btn_cancelupdate" runat="server" Text="Cancel" CssClass="btn btn-danger" />
+                                </td>
+                            </tr>
+                    </tr>
+                </table>
+                </asp:Panel>
                 <h3 class="text-capitalize">Semester 2</h3>
                 <asp:GridView ID="tabelkelas1semester2" runat="server" AutoGenerateColumns="false" CssClass="table table-responsive-md" OnRowDeleting="EventHapusRaportKelas1Semester2" DataKeyNames="kelas,semester,nis">
                     <Columns>

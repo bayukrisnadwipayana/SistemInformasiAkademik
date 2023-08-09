@@ -124,6 +124,11 @@ namespace Latihan
             this.modalpopup.Show();
         }
 
+        protected void EventModalUpdateRaportKelas1Semester1(object sender, EventArgs e)
+        {
+            this.modalpopupupdate.Show();
+        }
+
         protected void EventHapusRaportKelas1Semester1(object sender, EventArgs e)
         {
             if (controller.EventHapusRaportKelas1Semester1(texthapuskelas1.Text, texthapussemester1.Text, texthapusnis.Text, texthapuspelajaran1.Text) > 0)
