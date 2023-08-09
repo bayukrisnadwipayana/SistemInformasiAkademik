@@ -126,6 +126,37 @@ namespace Latihan
 
         protected void EventModalUpdateRaportKelas1Semester1(object sender, EventArgs e)
         {
+            RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
+            SqlDataReader datareader;
+            string query = "SELECT raport.id_mapel FROM raport INNER JOIN pelajaran ON raport.id_mapel=pelajaran.id_mapel WHERE pelajaran.nama_mapel=@namamapel";
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.Add("@namamapel", SqlDbType.VarChar).Value = (item.FindControl("labelpelajaran") as Label).Text;
+                datareader = command.ExecuteReader();
+                while (datareader.Read())
+                {
+                    textupdatekelas.Text = (item.FindControl("labelkelas") as Label).Text;
+                    textupdatesemester.Text = (item.FindControl("labelsemester") as Label).Text;
+                    textupdatenis.Text = (item.FindControl("labelnis") as Label).Text;
+                    textupdatepelajaran.Text = datareader["id_mapel"].ToString();
+                    textupdatetugas.Text = (item.FindControl("labeltugas") as Label).Text;
+                    textupdatekuis.Text = (item.FindControl("labelkuis") as Label).Text;
+                    textupdateujian.Text = (item.FindControl("labelujian") as Label).Text;
+                }
+                datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            finally
+            {
+                koneksi.Close();
+            }
             this.modalpopupupdate.Show();
         }
 

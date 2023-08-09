@@ -144,9 +144,9 @@
                 </asp:Repeater>
                 <asp:Button ID="modalpopuphapus" runat="server" style="display:none" />
                 <asp:Button ID="btn_modalpopupupdate" runat="server" style="display:none" />
-                <cc1:ModalPopupExtender ID="modalpopup" runat="server" PopupControlID="panel1" TargetControlID="modalpopuphapus" CancelControlID="btnCancel"></cc1:ModalPopupExtender>
-                <cc1:ModalPopupExtender ID="modalpopupupdate" runat="server" PopupControlID="panel2" TargetControlID="btn_modalpopupupdate" CancelControlID="btn_cancelupdate"></cc1:ModalPopupExtender>
-                <asp:Panel ID="panel1" runat="server" BackColor="White" Height="200px" Width="400px" style="display:none">
+                <cc1:ModalPopupExtender ID="modalpopup" runat="server" PopupControlID="panel1" X="500" Y="150" TargetControlID="modalpopuphapus" CancelControlID="btnCancel"></cc1:ModalPopupExtender>
+                <cc1:ModalPopupExtender ID="modalpopupupdate" runat="server" PopupControlID="panel2" X="500" Y="150" TargetControlID="btn_modalpopupupdate" CancelControlID="btn_cancelupdate"></cc1:ModalPopupExtender>
+                <asp:Panel ID="panel1" runat="server" BackColor="White" Height="300px" Width="400px" style="display:none">
                 <table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
                     <tr style="background-color:#D55500">
                         <td colspan="2" style="height:10%; color:White; font-weight:bold; font-size:larger" align="center">Detail Guru</td>
@@ -193,7 +193,7 @@
                     </tr>
                 </table>
                 </asp:Panel>
-                <asp:Panel ID="panel2" runat="server" BackColor="White" Height="200px" Width="400px" style="display:none">
+                <asp:Panel ID="panel2" runat="server" BackColor="White" Height="500px" Width="400px" style="display:none">
                 <table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
                     <tr style="background-color:#D55500">
                         <td colspan="2" style="height:10%; color:White; font-weight:bold; font-size:larger" align="center">Detail Guru</td>
@@ -202,7 +202,7 @@
                                 Kelas:
                                 </td>
                                 <td>
-                                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="textupdatekelas" runat="server" CssClass="form-control"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -210,7 +210,7 @@
                                 Semester:
                                 </td>
                                 <td>
-                                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="textupdatesemester" runat="server" CssClass="form-control"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -218,7 +218,7 @@
                                 Nis:
                                 </td>
                                 <td>
-                                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="textupdatenis" runat="server" CssClass="form-control"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -226,7 +226,31 @@
                                 Pelajaran:
                                 </td>        
                                 <td>
-                                <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="textupdatepelajaran" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nilai Tugas:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="textupdatetugas" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nilai Kuis:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="textupdatekuis" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nilai Ujian:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="textupdateujian" runat="server" CssClass="form-control"></asp:TextBox>
                                 </td>       
                             </tr>
                             <tr>

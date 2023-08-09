@@ -230,40 +230,67 @@ namespace Latihan {
         protected global::System.Web.UI.WebControls.Panel panel2;
         
         /// <summary>
-        /// TextBox1 control.
+        /// textupdatekelas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox textupdatekelas;
         
         /// <summary>
-        /// TextBox2 control.
+        /// textupdatesemester control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox textupdatesemester;
         
         /// <summary>
-        /// TextBox3 control.
+        /// textupdatenis control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox textupdatenis;
         
         /// <summary>
-        /// TextBox4 control.
+        /// textupdatepelajaran control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox textupdatepelajaran;
+        
+        /// <summary>
+        /// textupdatetugas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textupdatetugas;
+        
+        /// <summary>
+        /// textupdatekuis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textupdatekuis;
+        
+        /// <summary>
+        /// textupdateujian control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textupdateujian;
         
         /// <summary>
         /// btn_updateraport11 control.
