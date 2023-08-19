@@ -142,9 +142,9 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
-                <asp:Button ID="modalpopuphapus" runat="server" style="display:none" />
+                <asp:Button ID="btn_modalpopuphapus" runat="server" style="display:none" />
                 <asp:Button ID="btn_modalpopupupdate" runat="server" style="display:none" />
-                <cc1:ModalPopupExtender ID="modalpopup" runat="server" PopupControlID="panel1" X="500" Y="150" TargetControlID="modalpopuphapus" CancelControlID="btnCancel"></cc1:ModalPopupExtender>
+                <cc1:ModalPopupExtender ID="modalpopuphapus" runat="server" PopupControlID="panel1" X="500" Y="150" TargetControlID="btn_modalpopuphapus" CancelControlID="btnCancel"></cc1:ModalPopupExtender>
                 <cc1:ModalPopupExtender ID="modalpopupupdate" runat="server" PopupControlID="panel2" X="500" Y="150" TargetControlID="btn_modalpopupupdate" CancelControlID="btn_cancelupdate"></cc1:ModalPopupExtender>
                 <asp:Panel ID="panel1" runat="server" BackColor="White" Height="300px" Width="400px" style="display:none">
                 <table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
@@ -257,7 +257,7 @@
                                 <td>
                                 </td>
                                 <td>
-                                <asp:Button ID="btn_updateraport11" runat="server" Text="Delete" CssClass="btn btn-warning" />
+                                <asp:Button ID="btn_updateraport11" runat="server" Text="Update" CssClass="btn btn-warning" OnClick="EventUpdateRaportKelas1Semester1" />
                                 <asp:Button ID="btn_cancelupdate" runat="server" Text="Cancel" CssClass="btn btn-danger" />
                                 </td>
                             </tr>

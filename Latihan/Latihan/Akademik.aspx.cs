@@ -121,7 +121,7 @@ namespace Latihan
             {
                 koneksi.Close();
             }
-            this.modalpopup.Show();
+            this.modalpopuphapus.Show();
         }
 
         protected void EventModalUpdateRaportKelas1Semester1(object sender, EventArgs e)
@@ -158,6 +158,39 @@ namespace Latihan
                 koneksi.Close();
             }
             this.modalpopupupdate.Show();
+        }
+
+        protected void EventUpdateRaportKelas1Semester1(object sender, EventArgs e)
+        {
+            string query = "UPDATE raport SET id_mapel=@id_mapel,tugas=@tugas,kuis=@Kuis,ujian=@ujian WHERE kelas=@kelas AND semester=@semester AND nis=@nis";
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@id_mapel", textupdatepelajaran.Text);
+                command.Parameters.AddWithValue("@tugas", textupdatetugas.Text);
+                command.Parameters.AddWithValue("@kuis", textupdatekuis.Text);
+                command.Parameters.AddWithValue("@ujian", textupdateujian.Text);
+                command.Parameters.AddWithValue("@kelas", textupdatekelas.Text);
+                command.Parameters.AddWithValue("@semester", textupdatesemester.Text);
+                command.Parameters.AddWithValue("@nis", textupdatenis.Text);
+                int record = command.ExecuteNonQuery();
+                if (record > 0)
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "Swal.fire('Update','Data Sukses Terupdate','success')", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            finally
+            {
+                koneksi.Close();
+                DisplayRaportKelas1Semester1("1", Request.Url.AbsoluteUri.Split('=')[1]);
+            }
         }
 
         protected void EventHapusRaportKelas1Semester1(object sender, EventArgs e)

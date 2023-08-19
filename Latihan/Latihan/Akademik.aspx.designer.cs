@@ -122,13 +122,13 @@ namespace Latihan {
         protected global::System.Web.UI.WebControls.Repeater tabelkelas1semester1;
         
         /// <summary>
-        /// modalpopuphapus control.
+        /// btn_modalpopuphapus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button modalpopuphapus;
+        protected global::System.Web.UI.WebControls.Button btn_modalpopuphapus;
         
         /// <summary>
         /// btn_modalpopupupdate control.
@@ -140,13 +140,13 @@ namespace Latihan {
         protected global::System.Web.UI.WebControls.Button btn_modalpopupupdate;
         
         /// <summary>
-        /// modalpopup control.
+        /// modalpopuphapus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender modalpopup;
+        protected global::AjaxControlToolkit.ModalPopupExtender modalpopuphapus;
         
         /// <summary>
         /// modalpopupupdate control.
