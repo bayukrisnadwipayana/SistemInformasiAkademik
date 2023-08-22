@@ -82,5 +82,20 @@ namespace Latihan
             string nis = (item.FindControl("nissiswa") as Label).Text;
             Response.Redirect("Akademik.aspx?nis=" + nis);
         }
+
+        protected void EventModalCreatePasswordSiswa(object sender, EventArgs e)
+        {
+            RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
+            textnissiswa.Text = (item.FindControl("nissiswa") as Label).Text;
+            this.modalcreatepasswordsiswa.Show();
+        }
+
+        protected void EventSavePasswordSiswa(object sender, EventArgs e)
+        {
+            if (controller.SavePasswordMahasiswa(textnissiswa.Text, textpasswordsiswa.Text) > 0)
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "Swal.fire('Sukses','Data Password Sukses Disimpan','success')", true);
+            }
+        }
     }
 }
