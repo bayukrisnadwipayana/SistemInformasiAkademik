@@ -162,7 +162,7 @@ namespace Latihan
 
         protected void EventUpdateRaportKelas1Semester1(object sender, EventArgs e)
         {
-            string query = "UPDATE raport SET id_mapel=@id_mapel,tugas=@tugas,kuis=@Kuis,ujian=@ujian WHERE kelas=@kelas AND semester=@semester AND nis=@nis";
+            string query = "UPDATE raport SET tugas=@tugas,kuis=@kuis,ujian=@ujian WHERE kelas=@kelas AND semester=@semester AND nis=@nis AND id_mapel=@id_mapel";
             try
             {
                 koneksi.Open();
@@ -228,6 +228,42 @@ namespace Latihan
             {
                 koneksi.Close();
             }
+        }
+
+        protected void OpenModalPopupUpdate12(object sender, EventArgs e)
+        {
+            string query = "SELECT raport.id_mapel FROM raport INNER JOIN pelajaran ON raport.id_mapel=pelajaran.id_mapel WHERE pelajaran.nama_mapel=@namamapel";
+            SqlDataReader datareader;
+            GridViewRow row = (sender as LinkButton).NamingContainer as GridViewRow;
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.Add("@namamapel", SqlDbType.VarChar).Value = row.Cells[4].Text;
+                datareader = command.ExecuteReader();
+                while (datareader.Read())
+                {
+                    textkelas12.Text = row.Cells[0].Text;
+                    textsemester12.Text = row.Cells[1].Text;
+                    textnis12.Text = row.Cells[2].Text;
+                    textpelajaran12.Text = datareader[0].ToString();
+                    texttugas12.Text = row.Cells[5].Text;
+                    textkuis12.Text = row.Cells[6].Text;
+                    textujian12.Text = row.Cells[7].Text;
+                }
+                datareader.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            this.modalgridviewupdate12.Show();
         }
 
         protected void Page_Load(object sender, EventArgs e)

@@ -202,7 +202,7 @@
                                 Kelas:
                                 </td>
                                 <td>
-                                <asp:TextBox ID="textupdatekelas" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="textupdatekelas" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -210,7 +210,7 @@
                                 Semester:
                                 </td>
                                 <td>
-                                <asp:TextBox ID="textupdatesemester" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="textupdatesemester" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -218,7 +218,7 @@
                                 Nis:
                                 </td>
                                 <td>
-                                <asp:TextBox ID="textupdatenis" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="textupdatenis" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -226,7 +226,7 @@
                                 Pelajaran:
                                 </td>        
                                 <td>
-                                <asp:TextBox ID="textupdatepelajaran" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="textupdatepelajaran" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                 </td>       
                             </tr>
                             <tr>
@@ -278,12 +278,85 @@
                         <asp:BoundField HeaderText="Nilai Rata-Rata" DataField="rata_rata" />
                         <asp:TemplateField HeaderText="Action">
                             <ItemTemplate>
-                                <asp:LinkButton ID="btn_update" runat="server" CommandName="Update" CssClass="btn btn-warning"><ion-icon src="Bootstrap/img/create-sharp.svg"></asp:LinkButton>
+                                <asp:LinkButton ID="btn_update" runat="server" CssClass="btn btn-warning" OnClick="OpenModalPopupUpdate12"><ion-icon src="Bootstrap/img/create-sharp.svg"></asp:LinkButton>
                                 <asp:LinkButton ID="btn_delete" runat="server" CommandName="Delete" CssClass="btn btn-danger" OnClientClick="return confirm('Anda Yakin Menghapus ?')"><ion-icon src="Bootstrap/img/trash-sharp.svg"></ion-icon></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+               <asp:Button ID="btn_openmodalgridviewupdate" runat="server" style="display:none" />
+               <cc1:ModalPopupExtender ID="modalgridviewupdate12" runat="server" TargetControlID="btn_openmodalgridviewupdate" PopupControlID="panel3" CancelControlID="btn_cancelupdate12" X="500" Y="150"></cc1:ModalPopupExtender>
+               <asp:Panel ID="panel3" runat="server" BackColor="White" Height="500px" Width="400px" style="display:none">
+                <table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
+                    <tr style="background-color:#D55500">
+                        <td colspan="2" style="height:10%; color:White; font-weight:bold; font-size:larger" align="center">Detail Guru</td>
+                            <tr>
+                                <td align="right">
+                                Kelas:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="textkelas12" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Semester:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="textsemester12" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nis:
+                                </td>
+                                <td>
+                                <asp:TextBox ID="textnis12" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Pelajaran:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="textpelajaran12" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nilai Tugas:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="texttugas12" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nilai Kuis:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="textkuis12" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                Nilai Ujian:
+                                </td>        
+                                <td>
+                                <asp:TextBox ID="textujian12" runat="server" CssClass="form-control"></asp:TextBox>
+                                </td>       
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btn btn-warning" />
+                                <asp:Button ID="btn_cancelupdate12" runat="server" Text="Cancel" CssClass="btn btn-danger" />
+                                </td>
+                            </tr>
+                    </tr>
+                </table>
+                </asp:Panel>
             </ContentTemplate>
         </cc1:TabPanel>
         <cc1:TabPanel runat="server" HeaderText="Kelas 2" ID="tabpanel2">
