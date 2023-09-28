@@ -410,13 +410,13 @@ namespace Latihan {
         protected global::System.Web.UI.WebControls.TextBox textujian12;
         
         /// <summary>
-        /// Button1 control.
+        /// btn_updateraport12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btn_updateraport12;
         
         /// <summary>
         /// btn_cancelupdate12 control.

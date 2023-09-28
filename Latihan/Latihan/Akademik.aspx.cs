@@ -266,6 +266,38 @@ namespace Latihan
             this.modalgridviewupdate12.Show();
         }
 
+        protected void EventUpdateRaportKelas1Semester2(object sender, EventArgs e)
+        {
+            string query = "UPDATE raport SET tugas=@tugas,kuis=@kuis,ujian=@ujian WHERE kelas=@kelas AND semester=@semester AND nis=@nis AND id_mapel=@id_mapel";
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@tugas", texttugas12.Text);
+                command.Parameters.AddWithValue("@kuis", textkuis12.Text);
+                command.Parameters.AddWithValue("@ujian", textujian12.Text);
+                command.Parameters.AddWithValue("@kelas", textkelas12.Text);
+                command.Parameters.AddWithValue("@semester", textsemester12.Text);
+                command.Parameters.AddWithValue("@nis", textnis12.Text);
+                command.Parameters.AddWithValue("@id_mapel", textpelajaran12.Text);
+                int record = command.ExecuteNonQuery();
+                if (record > 0)
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "Swal.fire('Sukses','Data Sukses Terupdate','success')", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

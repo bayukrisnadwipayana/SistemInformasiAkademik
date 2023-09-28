@@ -350,7 +350,7 @@
                                 <td>
                                 </td>
                                 <td>
-                                <asp:Button ID="Button1" runat="server" Text="Update" CssClass="btn btn-warning" />
+                                <asp:Button ID="btn_updateraport12" runat="server" Text="Update" CssClass="btn btn-warning" OnClick="EventUpdateRaportKelas1Semester2" />
                                 <asp:Button ID="btn_cancelupdate12" runat="server" Text="Cancel" CssClass="btn btn-danger" />
                                 </td>
                             </tr>
