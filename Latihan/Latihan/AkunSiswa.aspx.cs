@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
 using Latihan;
+using SistemAkademik.localhost;
 
 namespace Latihan
 {
@@ -35,6 +36,7 @@ namespace Latihan
                 datareader = command.ExecuteReader();
                 while (datareader.Read())
                 {
+                    labelnis.Text = datareader["nis"].ToString();
                     labelnamasiswa.Text = datareader["namasiswa"].ToString();
                     labelalamat.Text = datareader["alamat"].ToString();
                     labeljeniskelamin.Text = datareader["jeniskelamin"].ToString();
@@ -50,6 +52,7 @@ namespace Latihan
                 koneksi.Close();
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -68,6 +71,9 @@ namespace Latihan
                     Response.ClearHeaders();
                     Response.AddHeader("Cache-Control", "no-cache,no-store,max-age=0,must-revalidate");
                     Response.AddHeader("Pragma", "no-cache");
+                    WebServiceAkademik service = new WebServiceAkademik();
+                    daftar_transkip.DataSource = service.GetTranskripNilai(Session["siswa"].ToString());
+                    daftar_transkip.DataBind();
                 }
             }
             Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));

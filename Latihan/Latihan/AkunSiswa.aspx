@@ -38,6 +38,15 @@
               <div class="col-lg-8">
                 <div class="card mb-4">
                   <div class="card-body">
+                  <div class="row">
+                      <div class="col-sm-3">
+                        <p class="mb-0">NIS</p>
+                      </div>
+                      <div class="col-sm-9">
+                        <asp:Label ID="labelnis" runat="server" CssClass="text-muted mb-0"></asp:Label>
+                      </div>
+                    </div>
+                    <hr />
                     <div class="row">
                       <div class="col-sm-3">
                         <p class="mb-0">Nama</p>
@@ -73,19 +82,40 @@
         </section>
       </div>
       <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-        <asp:GridView ID="tabelakademik" runat="server" AutoGenerateColumns="false" CssClass="table tab-content table-hover">
-            <Columns>
-                <asp:BoundField ControlStyle-CssClass="row" HeaderText="NIS" />
-                <asp:BoundField HeaderText="Nama" />
-                <asp:BoundField HeaderText="Semester" />
-            </Columns>
-        </asp:GridView>
+        
       </div>
       <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-      
+        <asp:Repeater ID="daftar_transkip" runat="server">
+        <HeaderTemplate>
+            <table class="table table-active table-bordered">
+            <tr>
+            <th colspan="col">Kelas</th>
+            <th>Semester</th>
+            <th>NIS</th>
+            <th>Pelajaran</th>
+            <th>Tugas</th>
+            <th>Kuis</th>
+            <th>Ujian</th>
+            <th>Rata-Rata</th>
+            </tr>
+        </HeaderTemplate>
+        <ItemTemplate>
+        <tr>
+        <td><%# Eval("kelas") %></td>
+        <td><%# Eval("semester") %></td>
+        <td><%# Eval("nis") %></td>
+        <td><%# Eval("id_mapel") %></td>
+        <td><%# Eval("tugas") %></td>
+        <td><%# Eval("kuis") %></td>
+        <td><%# Eval("ujian") %></td>
+        </tr>
+        </ItemTemplate>
+        <FooterTemplate>
+        </table>
+        </FooterTemplate>
+        </asp:Repeater>
       </div>
     </div>
-    
     </form>
 </body>
 </html>

@@ -41,6 +41,15 @@ namespace Latihan {
         protected global::System.Web.UI.WebControls.Label labelnama;
         
         /// <summary>
+        /// labelnis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelnis;
+        
+        /// <summary>
         /// labelnamasiswa control.
         /// </summary>
         /// <remarks>
@@ -68,12 +77,12 @@ namespace Latihan {
         protected global::System.Web.UI.WebControls.Label labeljeniskelamin;
         
         /// <summary>
-        /// tabelakademik control.
+        /// daftar_transkip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView tabelakademik;
+        protected global::System.Web.UI.WebControls.Repeater daftar_transkip;
     }
 }
