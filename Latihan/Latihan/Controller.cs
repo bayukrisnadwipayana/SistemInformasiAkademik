@@ -43,6 +43,7 @@ namespace Latihan
         private string kelas;
         private string semester;
         private string mapel;
+        private string password;
 
         public string get_nis
         {
@@ -176,6 +177,18 @@ namespace Latihan
                 id_mapel = value;
             }
         }
+        public string get_password
+        {
+            get
+            {
+                return password;
+            }
+            set
+            {
+                password = value;
+            }
+        }
+
         public DataSet GetDataKota(string sql)
         {
             this.get_query = sql;
@@ -466,6 +479,32 @@ namespace Latihan
                 command.Parameters.Add("@semester", SqlDbType.VarChar).Value = this.get_semester;
                 command.Parameters.Add("@nis", SqlDbType.VarChar).Value = this.get_nis;
                 command.Parameters.Add("@id_mapel", SqlDbType.VarChar).Value = this.get_pelajaran;
+                return command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+            return 0;
+        }
+
+        public int SavePasswordMahasiswa(string nis, string password)
+        {
+            this.get_nis = nis;
+            this.get_password = password;
+            this.get_query = "INSERT INTO loginsiswa VALUES(@nis,@password)";
+            try
+            {
+                koneksi.Open();
+                command.Connection = koneksi;
+                command.CommandType = CommandType.Text;
+                command.CommandText = this.get_query;
+                command.Parameters.Add("@nis", SqlDbType.VarChar).Value = this.get_nis;
+                command.Parameters.Add("@password", SqlDbType.VarChar).Value = this.get_password;
                 return command.ExecuteNonQuery();
             }
             catch (Exception ex)

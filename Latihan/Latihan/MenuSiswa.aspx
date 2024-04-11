@@ -64,7 +64,7 @@
         <asp:Panel ID="panel1" runat="server" BackColor="White" Height="269px" Width="400px" style="display:none">
 <table width="100%" style="border:Solid 3px #D55500; width:100%; height:100%" cellpadding="0" cellspacing="0">
 <tr style="background-color:#D55500">
-    <td colspan="2" style=" height:10%; color:White; font-weight:bold; font-size:larger" align="center">Detail Guru</td>
+    <td colspan="2" style=" height:10%; color:White; font-weight:bold; font-size:larger" align="center">Detail Siswa</td>
         <tr>
             <td align="right">
             Nis:

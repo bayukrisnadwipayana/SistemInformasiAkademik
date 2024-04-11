@@ -6,7 +6,8 @@
         <label for="exampleInputEmail1" class="h2 text-white bg-secondary ml-4">ID Panitia</label>
         <asp:TextBox ID="email" autocomplete="off" runat="server" CssClass="form-control ml-4 col-3" aria-describedby="emailHelp"></asp:TextBox>
         <asp:Label ID="labelresult" runat="server"></asp:Label>
-        <asp:RequiredFieldValidator CssClass="ml-4 col-3" ID="validate_user" runat="server" ControlToValidate="email" ErrorMessage="{wajib diisi}"></asp:RequiredFieldValidator>        
+        <asp:RequiredFieldValidator CssClass="ml-4 col-3" ID="validate_user" runat="server" ControlToValidate="email" ErrorMessage="{wajib diisi}"></asp:RequiredFieldValidator>
+        <asp:RangeValidator runat="server" ID="range_username" MaximumValue="6" Type="String" Text="Username Lebih Dari 6 Karakter" ControlToValidate="email"></asp:RangeValidator>       
         <small id="emailHelp" ><marquee class="form-text text-warning ml-4 col-3 bg-secondary">We'll never share your email with anyone else.</marquee></small>
       </div>
       <div class="form-group">
