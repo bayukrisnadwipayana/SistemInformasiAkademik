@@ -1,5 +1,0 @@
-C:\Users\USER\Documents\Visual Studio 2008\Projects\Latihan\Latihan\bin\Latihan.dll
-C:\Users\USER\Documents\Visual Studio 2008\Projects\Latihan\Latihan\bin\Latihan.pdb
-C:\Users\USER\Documents\Visual Studio 2008\Projects\Latihan\Latihan\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\USER\Documents\Visual Studio 2008\Projects\Latihan\Latihan\obj\Debug\Latihan.dll
-C:\Users\USER\Documents\Visual Studio 2008\Projects\Latihan\Latihan\obj\Debug\Latihan.pdb
