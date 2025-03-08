@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Users\Admin\Documents\Visual Studio 2010\Projects\SistemAkademik" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Bootstrap/img/create-sharp.svg" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="MenuSiswa.aspx" publishTime="08/06/2024 11:39:09" />
+    <file relUrl="MenuHome.aspx" publishTime="07/11/2023 18:33:30" />
+    <file relUrl="Bootstrap/css/bootstrap.css" publishTime="07/11/2023 18:33:51" />
+    <file relUrl="Bootstrap/js/bootstrap.min.js" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="Bootstrap/img/green-wave-background-free-vector.jpg" publishTime="07/15/2023 19:10:50" />
+    <file relUrl="MenuGuru.aspx" publishTime="08/05/2023 21:07:10" />
+    <file relUrl="Bootstrap/img/man.svg" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="bin/SistemAkademik.dll" publishTime="09/05/2024 10:44:22" />
+    <file relUrl="Web.config" publishTime="08/29/2024 11:32:17" />
+    <file relUrl="Bootstrap/img/2751763.jpg" publishTime="08/16/2024 10:35:22" />
+    <file relUrl="MenuUtama.Master" publishTime="07/11/2023 18:33:30" />
+    <file relUrl="bin/SistemAkademik.pdb" publishTime="09/05/2024 10:44:22" />
+    <file relUrl="Bootstrap/css/bootstrap-reboot.min.css" publishTime="07/11/2023 18:33:51" />
+    <file relUrl="Bootstrap/img/ajaxcssstyletabcontainer.gif" publishTime="07/15/2023 19:09:21" />
+    <file relUrl="Pendaftaran.aspx" publishTime="07/11/2023 18:33:30" />
+    <file relUrl="Bootstrap/img/cloud-download-outline.svg" publishTime="08/12/2024 10:54:04" />
+    <file relUrl="Bootstrap/css/bootstrap-reboot.css" publishTime="07/11/2023 18:33:51" />
+    <file relUrl="Bootstrap/img/Seanau-3d-House-School.ico" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="Pembayaran.aspx" publishTime="07/11/2023 18:33:30" />
+    <file relUrl="BuktiRegister.aspx" publishTime="07/11/2023 18:33:56" />
+    <file relUrl="Site1.Master" publishTime="07/11/2023 18:33:30" />
+    <file relUrl="Bootstrap/img/Accordion-Tab-Navigation-Menu-and-Hero-Section-Slider.gif" publishTime="07/15/2023 19:06:48" />
+    <file relUrl="Bootstrap/img/newspaper-outline.svg" publishTime="08/22/2023 17:35:19" />
+    <file relUrl="bin/AjaxControlToolkit.dll" publishTime="08/21/2008 10:13:18" />
+    <file relUrl="Bootstrap/css/bootstrap-grid.min.css" publishTime="07/11/2023 18:33:51" />
+    <file relUrl="Default.aspx" publishTime="07/11/2023 18:34:01" />
+    <file relUrl="Bootstrap/img/buku.jpeg" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="Bootstrap/img/print-outline.svg" publishTime="08/12/2024 11:08:13" />
+    <file relUrl="AkunSiswa.aspx" publishTime="08/21/2024 09:25:09" />
+    <file relUrl="Bootstrap/img/trash-outline.svg" publishTime="08/12/2024 10:51:54" />
+    <file relUrl="Akademik.aspx" publishTime="08/09/2024 11:44:36" />
+    <file relUrl="Bootstrap/img/image.jpg" publishTime="07/15/2023 19:12:16" />
+    <file relUrl="EditDataSiswa.aspx" publishTime="07/11/2023 18:33:30" />
+    <file relUrl="Bootstrap/img/login.png" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="AkunGuru.aspx" publishTime="08/21/2024 10:20:42" />
+    <file relUrl="LoginGuru.aspx" publishTime="08/16/2024 10:35:54" />
+    <file relUrl="Bootstrap/js/bootstrap.js" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="Login.aspx" publishTime="02/29/2024 19:00:57" />
+    <file relUrl="Bootstrap/css/bootstrap.min.css" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="LoginSiswa.aspx" publishTime="08/16/2024 09:28:39" />
+    <file relUrl="Bootstrap/css/bootstrap-grid.css" publishTime="07/11/2023 18:33:51" />
+    <file relUrl="Index.aspx" publishTime="07/11/2023 18:33:30" />
+    <file relUrl="Bootstrap/img/Definisi pendidikan.jpg" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="Bootstrap/js/bootstrap.bundle.min.js" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="Bootstrap/img/peran-teknologi-informasi-dalam-bisnis.jpg" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="Bootstrap/js/bootstrap.bundle.js" publishTime="07/11/2023 18:33:52" />
+    <file relUrl="WebServiceAkademik.asmx" publishTime="09/28/2023 09:12:40" />
+    <file relUrl="Bootstrap/img/trash-sharp.svg" publishTime="07/11/2023 18:33:52" />
+  </publishProfile>
+</publishData>
